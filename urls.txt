@@ -1,5 +1,5 @@
 [URL01] https://github.com/mightymensa/udapeople-project-3.git
-[URL02]
+[URL02] http://udapeople-41b2b78.s3-website-us-east-1.amazonaws.com/#/employees/new
 [URL03]
-[URL04]
+[URL04] http://54.166.254.7:3030/api/status
 [URL05]

@@ -34,7 +34,7 @@ async function bootstrap() {
   SwaggerModule.setup(`api/${apiVersionPrefix}`, app, document);
   const config: ConfigService = app.get('ConfigService');
   const whitelist = config.CORS_WHITELIST;
-  const corsOptions = {
+  const corsOptions_ = {
     origin(origin, callback) {
       const isOriginAllowed = whitelist.indexOf(origin) !== -1;
       const allowAccessAnyway = whitelist.length === 0;
@@ -45,6 +45,8 @@ async function bootstrap() {
       }
     },
   };
+  const corsOptions = {
+    origin: '*',"methods": "GET,HEAD,PUT,PATCH,POST,DELETE"}
   app.use(cors(corsOptions));
   app.useGlobalFilters(new ErrorFilter());
   await app.listen(config.PORT);
