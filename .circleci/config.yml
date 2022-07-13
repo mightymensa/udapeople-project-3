@@ -240,10 +240,6 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run:
-          name: Install deps
-          command: |
-            apk add --update --no-cache tar gzip nodejs npm aws-cli curl
       - restore_cache:
           keys: [backend-build]
       - attach_workspace:
@@ -262,6 +258,8 @@ jobs:
             echo TYPEORM_USERNAME=$TYPEORM_USERNAME >> backend/.env
             echo TYPEORM_PASSWORD=$TYPEORM_PASSWORD >> backend/.env
             echo TYPEORM_DATABASE=$TYPEORM_DATABASE >> backend/.env
+            sudo apt update
+            sudo apt install -y awscli
             cd backend
             npm install
             npm run migrations --force >> migrations_dump.txt
