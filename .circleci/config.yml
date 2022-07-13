@@ -299,7 +299,7 @@ jobs:
       - run:
           name: Deploy frontend objects
           command: |
-            cd frontend
+            cd frontend_
             npm install
             npm run build --silent
             tar -czvf artifact-"${CIRCLE_WORKFLOW_ID:0:7}".tar.gz dist
